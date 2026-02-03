@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/constants.dart';
+import 'package:flutter_app/widgets/hero_widget.dart';
 import 'package:lottie/lottie.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           Lottie.asset('assets/lotties/home.json'),
+          // HeroWidget(title: 'Kayblis'),
           Container(
             width: double.infinity,
             padding: EdgeInsets.symmetric(vertical: 10),
