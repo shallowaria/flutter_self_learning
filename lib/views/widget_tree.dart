@@ -12,14 +12,30 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Flutter 示例'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Flutter 示例'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              isDarkModeNotifier.value = !isDarkModeNotifier.value;
+            },
+            icon: ValueListenableBuilder(
+              valueListenable: isDarkModeNotifier,
+              builder: (context, isDarkMode, child) {
+                return Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode);
+              },
+            ),
+          ),
+        ],
+      ),
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
-        builder: (context, value, child) {
-          return pages.elementAt(value);
+        builder: (context, selectedValue, child) {
+          return pages.elementAt(selectedValue);
         },
       ),
-      bottomNavigationBar: NavbarWidget(),
+      bottomNavigationBar: const NavbarWidget(),
     );
   }
 }
