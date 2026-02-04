@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/pages/home_page.dart';
+import 'package:flutter_app/views/pages/welcome_page.dart';
 import 'package:flutter_app/views/widget_tree.dart';
 import 'package:flutter_app/widgets/hero_widget.dart';
 
@@ -13,8 +14,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController controllerEmail = TextEditingController();
-  TextEditingController controllerPw = TextEditingController();
+  TextEditingController controllerEmail = TextEditingController(text: '123');
+  TextEditingController controllerPw = TextEditingController(text: '456');
   String confirmedEmail = '123';
   String confirmedPw = '456';
 
@@ -72,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 40.0),
                   ),
-                  child: Text('Login'),
+                  child: Text(widget.title),
                 ),
                 SizedBox(height: 50.0),
               ],
@@ -86,13 +87,14 @@ class _LoginPageState extends State<LoginPage> {
   void onLoginPressed() {
     if (confirmedEmail == controllerEmail.text &&
         confirmedPw == controllerPw.text) {
-      Navigator.pushReplacement(
+      Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
           builder: (context) {
             return WidgetTree();
           },
         ),
+        (route) => false,
       );
     }
   }
