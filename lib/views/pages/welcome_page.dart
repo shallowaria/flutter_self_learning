@@ -18,7 +18,7 @@ class WelcomePage extends StatelessWidget {
                 Lottie.asset('assets/lotties/welcome.json', height: 400.0),
                 FittedBox(
                   child: Text(
-                    'Kayblis',
+                    'Kayb',
                     style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
