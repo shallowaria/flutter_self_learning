@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/views/pages/home_page.dart';
-import 'package:flutter_app/views/pages/welcome_page.dart';
 import 'package:flutter_app/views/widget_tree.dart';
 import 'package:flutter_app/widgets/hero_widget.dart';
 
